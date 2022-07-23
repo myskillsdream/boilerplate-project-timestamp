@@ -20,17 +20,41 @@ app.get("/", function (req, res) {
 
 
 // your first API endpoint... 
-app.get("/api/:date?", function (req, res) {
+// your first API endpoint... 
+app.get("/api/hello", function (req, res) {
 
-  res.json({"utc": new Date().toUTCString()});
+  res.json({ greeting : "hello API" });
   
 });
 
-app.get("/api/1451001600000", function (req, res) {
+app.get("/api/:date?", function (req, res) {
 
-  res.json({"unix": new Date().getTime(), "utc": new Date().toUTCString()});
+  let dateString = req.params.date_string;
 
+  let passedInValue = new Date(dateString);
+
+  if (passedInValue == "Invalidate Date") {
+
+    res.json({ error : "Invalid Date" });
+
+  }else{
+    res.json(
+      { 
+        "unix": passedInValue.getTime(), 
+        "utc": passedInValue.toUTCString()
+      
+      });
+  }
+
+  
+  
 });
+
+// app.get("/api/1451001600000", function (req, res) {
+
+//   res.json({"unix": new Date().getTime(), "utc": new Date().toUTCString()});
+
+// });
 
 
 
