@@ -65,10 +65,10 @@ app.get("/api/1451001600000", function (req, res) {
 
   let dateInt = 1451001600000;
 
-  let passedDate = parseInt(dateInt)
+  // let passedDate = parseInt(dateInt)
 
-  if (passedDate > 1000) {
-     let unixTime = new Date(passedDate) 
+  if (dateInt > 1000) {
+     let unixTime = new Date(dateInt) 
 
      res.json({
       "unix": unixTime.getTime(), 
