@@ -61,7 +61,7 @@ app.get("/api/:date_string", function (req, res) {
     let unixTime = new Date(passedDate) 
 
     res.json({
-    //  "unix": unixTime.getTime(), 
+     "unix": unixTime.getTime(), 
      "utc": unixTime.toUTCString()
    });
 
