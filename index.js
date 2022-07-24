@@ -59,7 +59,7 @@ app.get("/api/:date_string", function (req, res) {
 
     res.json(
       { 
-        "unix": passedInValue.getTime(), 
+        // "unix": passedInValue.getTime(), 
         "utc": passedInValue.toUTCString()
       
       });
