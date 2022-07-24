@@ -27,16 +27,16 @@ app.get("/api/hello", function (req, res) {
   
 });
 
-// app.get("/api/timestamp", function (req, res) {
+app.get("/api/", function (req, res) {
 
-//   res.json({
+  res.json({
      
-//       "unix": new Date().getTime(), 
-//       "utc": new Date().toUTCString()
+      "unix": new Date().getTime(), 
+      // "utc": new Date().toUTCString()
     
-//     }); 
+    }); 
   
-// });
+});
 
 app.get("/api/:date_string", function (req, res) {
 
