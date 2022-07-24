@@ -63,23 +63,23 @@ app.get("/api/:date_string", function (req, res) {
 
 app.get("/api/1451001600000", function (req, res) {
 
-  let dateInt = 1451001600000;
+  let unixTime = 1451001600000;
 
   // let passedDate = parseInt(dateInt)
 
-  if (dateInt > 1000) {
-     let unixTime = new Date(dateInt) 
+  // if (dateInt > 1000) {
+  //    let unixTime = new Date(dateInt) 
 
      res.json({
       "unix": unixTime.getTime(), 
       "utc": unixTime.toUTCString()
     });
 
-  }else{
+  // }else{
 
-    res.json({ error : "Invalid Date" });
+  //   res.json({ error : "Invalid Date" });
 
-  }
+  // }
   
 });
 
