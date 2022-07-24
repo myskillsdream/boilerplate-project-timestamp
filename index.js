@@ -27,16 +27,16 @@ app.get("/api/hello", function (req, res) {
   
 });
 
-app.get("/api/timestamp", function (req, res) {
+// app.get("/api/timestamp", function (req, res) {
 
-  res.json({
+//   res.json({
      
-      "unix": new Date().getTime(), 
-      "utc": new Date().toUTCString()
+//       "unix": new Date().getTime(), 
+//       "utc": new Date().toUTCString()
     
-    }); 
+//     }); 
   
-});
+// });
 
 app.get("/api/:date_string", function (req, res) {
 
@@ -44,20 +44,20 @@ app.get("/api/:date_string", function (req, res) {
 
   let passedInValue = new Date(dateString);
 
-  if (passedInValue == "Invalid Date") {
+  if (passedInValue != "Invalid Date") {
 
-    res.json({ error : "Invalid Date" });
-
-  }else{
     res.json(
       { 
         "unix": passedInValue.getTime(), 
         "utc": passedInValue.toUTCString()
       
       });
-  }
 
-  
+  }else{
+
+    res.json({ error : "Invalid Date" });
+
+  }
   
 });
 
