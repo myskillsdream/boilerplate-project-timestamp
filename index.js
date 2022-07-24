@@ -44,7 +44,18 @@ app.get("/api/:date_string", function (req, res) {
 
   let passedInValue = new Date(dateString);
 
-  if (passedInValue != "Invalid Date") {
+  let passedDate = parseInt(dateString)
+  if (passedDate > 1000) {
+     let unixTime = new Date(passedDate) 
+
+     res.json({
+      "unix": unixTime.getTime(), 
+      "utc": unixTime.toUTCString()
+    });
+
+  }
+
+  else if (passedInValue != "Invalid Date") {
 
     res.json(
       { 
@@ -61,27 +72,12 @@ app.get("/api/:date_string", function (req, res) {
   
 });
 
-app.get("/api/1451001600000", function (req, res) {
+// app.get("/api/1451001600000", function (req, res) {
 
-  let unixTime = 1451001600000;
+//   res.json({"unix": new Date().getTime(), "utc": new Date().toUTCString()});
 
-  // let passedDate = parseInt(dateInt)
+// });
 
-  // if (dateInt > 1000) {
-  //    let unixTime = new Date(dateInt) 
-
-     res.json({
-      "unix": unixTime.getTime(), 
-      "utc": unixTime.toUTCString()
-    });
-
-  // }else{
-
-  //   res.json({ error : "Invalid Date" });
-
-  // }
-  
-});
 
 
 // listen for requests :)
